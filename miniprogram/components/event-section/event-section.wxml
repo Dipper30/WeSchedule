@@ -1,0 +1,136 @@
+<!--components/event-section/event-section.wxml-->
+<view class="event-section-container">
+	<!-- 编辑状态 -->
+	<view class="edit" wx:if="{{ifEdit}}">
+
+		<view class="left">
+			<image wx:if="{{type==0}}" class="type-img" src="../../images/plane.png"></image>
+			<image wx:if="{{type==1}}" class="type-img" src="../../images/dorm.png"></image>
+			<image wx:if="{{type==2}}" class="type-img" src="../../images/dining.png"></image>
+			<image wx:if="{{type==3}}" class="type-img" src="../../images/performance.png"></image>
+		</view>
+		<view class="right">
+			<!-- 事件名称 -->
+			<van-row>
+				<van-col span="9">事件名称</van-col>
+				<van-col span="15">
+					<van-field value="{{ name }}" placeholder="请输入事件名称" border="{{ false }}"
+						bind:change="onNameInput" />
+				</van-col>
+			</van-row>
+
+			<!-- 事件名称 -->
+			<!-- 起始时间 -->
+			<van-row>
+				<van-col span="9">起始时间</van-col>
+				<van-col span="15">
+					<picker mode="time" value="{{startTime}}" start="00:00" end="{{endTime}}"
+						bindchange="bindStartTimeChange">
+						<view>{{startTime}}</view>
+					</picker>
+				</van-col>
+			</van-row>
+
+			<!-- 起始时间 -->
+			<!-- 结束时间 -->
+			<van-row>
+
+				<van-col span="9">结束时间</van-col>
+				<van-col span="15">
+					<picker mode="time" value="{{endTime}}" start="{{startTime}}" end="23:59"
+						bindchange="bindEndTimeChange">
+						<view>{{endTime}}</view>
+					</picker>
+				</van-col>
+			</van-row>
+			<!-- 结束时间 -->
+			<!-- 出行 -->
+			<van-row>
+				<van-col span="9">种类</van-col>
+				<van-col span="15" bindtap="toggleTypeMenu">
+					<!-- <view class="{{!showTypeMenu? 'show-type-menu' : 'hide-type-menu'}}">{{typeList[type]}}</view> -->
+					<view wx:if="{{!showTypeMenu&&type==-1}}">请选择事件类型</view>
+					<view wx:if="{{!showTypeMenu&&type!=-1}}">{{typeList[type]}}</view>
+					<view class="type-menu {{showTypeMenu? 'show-type-menu' : 'hide-type-menu'}}">
+						<view wx:if="{{showTypeMenu}}" wx:for="{{typeList}}" wx:for-item="item" wx:key="index">
+							<view catchtap="onTypeSelected" data-id="{{index}}">{{item}}</view>
+						</view>
+					</view>
+				</van-col>
+			</van-row>
+			<!-- 出行 -->
+			<!-- 地点 -->
+			<van-row>
+
+				<van-col span="9">地点</van-col>
+				<van-col span="15">
+					<van-field value="{{ location }}" placeholder="请输入地点" border="{{ false }}"
+						bind:change="onLocationInput" />
+
+				</van-col>
+			</van-row>
+			<!-- 地点 -->
+
+
+		</view>
+
+
+	</view>
+	<!-- 编辑状态 -->
+
+
+	<!-- 显示状态 -->
+
+	<view class="display" wx:if="{{!ifEdit}}">
+		<!-- title -->
+		<view class="display-title">
+			<view class="display-left">
+				<image class="{{collapse ? 'icon-collapse':'icon-show'}}" src="../../images/event-collapse.png"
+					bindtap="onToggleCollapse"></image>
+
+			</view>
+			<view class="display-right">
+				{{event.name}}
+			</view>
+
+		</view>
+		<!-- title -->
+
+		<view class="content">
+			<view class="display-left">
+
+			</view>
+
+			<view class="{{collapse?'hide-event':'display-right'}} col" id="display">
+				<view class="display-row">
+					<view class="display-txt">时间段</view>
+					<view class="display-value">{{event.startTime}} - {{event.endTime}}</view>
+				</view>
+				<view class="display-row">
+					<view class="display-txt">事件类型</view>
+					<view class="display-type" wx:if="{{event.type>-1}}">{{typeList[event.type]}}<image
+							class="display-image" wx:if="{{event.type==0}}" src="../../images/plane.png"></image>
+						<image wx:if="{{event.type==1}}" class="display-image" src="../../images/dorm.png"></image>
+						<image wx:if="{{event.type==2}}" class="display-image" src="../../images/dining.png"></image>
+						<image wx:if="{{event.type==3}}" class="display-image" src="../../images/performance.png"></image>
+					</view>
+				</view>
+				<view class="display-row">
+					<view class="display-txt">地点</view>
+					<view class="display-value">{{event.location}}</view>
+				</view>
+				<view class="display-row">
+					<view wx:if="{{!ifEdit}}"><button bindtap="onEventEdit" wx:if="{{!ifEdit}}">编辑</button></view>
+				</view>
+			</view>
+		</view>
+
+
+
+	</view>
+	<!-- 显示状态 -->
+	<button bindtap="onEventUpdated" wx:if="{{ifEdit}}">确认</button>
+
+
+
+</view>

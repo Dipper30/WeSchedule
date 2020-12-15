@@ -1,0 +1,34 @@
+<!-- 
+<text>miniprogram/pages/team/newTeam/newTeam.wxml</text>
+<van-cell-group>
+  <van-field
+	value="{{ name }}"
+	label="团队名称"
+    placeholder="名称小于10个字符"
+    border="{{ false }}"
+    bindchange="onNameChange"
+  />
+  <van-field
+	value="{{ description }}"
+	label="团队描述"
+    placeholder="名称小于100个字符"
+    border="{{ false }}"
+    bindchange="onDescriptionChange"
+  />
+</van-cell-group> -->
+
+
+<view class="page-section">
+   
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input"  maxlength="10" bindinput="bindNameInput" placeholder="输入团队名"/>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input"  maxlength="10" bindinput="bindDescriptionInput" placeholder="输入团队描述"/>
+      </view>
+    </view>
+  </view>
+
+  <van-toast id="van-toast" />
+<button class="ok-btn" bindtap="onCreation">创建</button>

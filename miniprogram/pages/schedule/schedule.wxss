@@ -1,0 +1,84 @@
+/* pages/schedule/schedule.wxss */
+
+.page-container {
+	color: #333;
+	min-height: 100vh;
+	background-color: #f2f2f2;
+}
+
+.custom-class {
+	background-color: black;
+}
+.van-nav-bar {
+	padding-top: 0!important;
+}
+
+.nav-icon {
+	height: 30px;
+	width: 30px;
+}
+.custom-style{
+	color: red;
+}
+
+.side-bar-container {
+	position: fixed;
+	top: 50%;
+    /* transform: translate(0, -50%); */
+}
+
+.side-bar, .side-bar-arrow {
+	position: relative;
+	float: left;
+	top: 50%;
+	transform: translate(-80px, -50%);
+	transition-duration: 0.6s;
+}
+
+.side-bar {
+	width: 80px;
+}
+
+.side-bar-show {
+	position: relative;
+	float: left;
+	top: 50%;
+	transform: translate(0, -50%);
+	transition-duration: 0.6s;
+}
+
+
+
+
+.side-bar-arrow image {
+	width: 32px;
+	height: 32px;
+	transform: rotate(90deg);
+	transition-duration: 0.3s;
+}
+
+.side-bar-show image{
+	width: 32px;
+	height: 32px;
+	transform: rotate(270deg);
+	transition-duration: 0.3s;
+}
+
+.header {
+	padding: 28rpx;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	background-color: #fff;
+}
+
+.content-container {
+	min-height: 80vh;
+	background-color: #fff;
+}
+
+.calendar {
+	--calendar-height: 600rpx;
+  }
+
+.van-calender__header-title {
+	display: none!important;
+}

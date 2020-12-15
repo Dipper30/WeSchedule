@@ -1,0 +1,50 @@
+/* components/week/week.wxss */
+
+.week-container {
+	overflow: hidden;
+	transition: 0.4s ease;
+}
+
+.show {
+	height: 100px;
+}
+
+.hide {
+	height: 0;
+}
+
+.week-list {
+	display: flex;
+	flex-direction: column;
+	float: left;
+	width: 14.2857142%;
+	text-align: center;
+	padding-top: 20px;
+	align-items: center;
+	
+}
+
+.weekday-txt {
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.2rem;
+	color: lightgreen;
+	margin-bottom: 10px;
+	
+}
+
+.day-txt {
+	height: 80rpx;
+	width: 80rpx;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 80rpx;
+	color: #333;
+}
+
+.current-day {
+
+	color: white;
+	background-color: lightpink;
+	border-radius: 50%;
+}

@@ -1,0 +1,18 @@
+<view class="item">
+	<view class="header">
+		<view class="time">
+			
+				{{item.begin}}-{{item.end}}
+			
+		</view>
+		<view class="preview">
+			<image class="preview-icon" src="../../images/head-item-preview-icon.png"> 1</image>
+
+		</view>
+	</view>
+	<view class="description">
+		<text>
+			{{item.type}}
+		</text>
+	</view>
+</view>

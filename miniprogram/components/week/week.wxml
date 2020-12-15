@@ -1,0 +1,11 @@
+<!--components/week/week.wxml-->
+
+<view class="week-container {{showCalendar? 'hide' : 'show'}}">
+	<view class="week-view">
+		<view class="week-list" wx:for="{{weekList}}" wx:for-item="item" wx:key="index">
+			<view class="weekday-txt">{{item[1]}}</view>
+			<view class="day-txt {{index==0 ? 'current-day' : ''}}">{{item[0]}}</view>
+		</view>
+	</view>
+	
+</view>

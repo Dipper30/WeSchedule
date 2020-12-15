@@ -1,0 +1,25 @@
+<!--custom-tab-bar/index.wxml-->
+<view class="cu-bar tabbar">
+    <view class="action text-green {{selected === 0 ? 'active' : 'default'}}" bindtap="switchTab" data-index="0">
+      <view class="cuIcon-homefill"></view> 日程
+    </view>
+    <view class="action text-gray {{selected === 1 ? 'active' : 'default'}}" bindtap="switchTab" data-index="1">
+      <view class="cuIcon-similar"></view> 动态
+    </view>
+    <view class="action text-gray add-action">
+      <button class="cu-btn cuIcon-add bg-green shadow"></button>
+      发布
+    </view>
+    <view class="action text-gray {{selected === 3 ? 'active' : 'default'}}" bindtap="switchTab" data-index="2">
+      <view class="cuIcon-cart">
+        <view class="cu-tag badge">99</view>
+      </view>
+      团队
+    </view>
+    <view class="action text-gray {{selected === 3 ? 'active' : 'default'}}" bindtap="switchTab" data-index="3">
+      <view class="cuIcon-my">
+        <view class="cu-tag badge"></view>
+      </view>
+      个人
+    </view>
+  </view>

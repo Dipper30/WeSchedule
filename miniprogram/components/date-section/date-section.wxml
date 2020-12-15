@@ -1,0 +1,26 @@
+
+<view class="date-section-container">
+	<view class="date">
+		{{singleDay.month}}月{{singleDay.day}}日
+	</view>
+	<view class="event">
+		<view wx:for="{{singleDay.eventList}}" wx:for-item="item" wx:key="index">
+			<view >
+				<image class="delete-btn" src="../../images/remove-btn.png" bindtap="onEventDeleted" data-id="{{index}}"></image>
+				<!-- event-section组件 -->
+				<event-section bindoneventupdated="onEventUpdated" data-id="{{index}}" eventid="{{index}}" event="{{item}}"></event-section>
+				<!-- event-section组件 -->
+			<view class="divider" />
+			</view>
+			
+		</view>
+		<view bindtap="onNewEvent" >
+			<image style="width: 60rpx; height: 60rpx;" src="../../images/add-btn.png"></image>
+			添加事件
+		</view>
+		
+		
+		
+	</view>
+	
+</view>

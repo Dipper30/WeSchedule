@@ -1,0 +1,212 @@
+{
+    "miniprogramRoot": "miniprogram/",
+    "cloudfunctionRoot": "cloudfunctions/",
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true
+    },
+    "appid": "wx3a8a7fb536a5a777",
+    "projectname": "cloudhomework",
+    "libVersion": "2.14.0",
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+    "condition": {
+        "search": {
+            "list": []
+        },
+        "conversation": {
+            "list": []
+        },
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "db guide",
+                    "pathName": "pages/databaseGuide/databaseGuide",
+                    "query": ""
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/me",
+                    "pathName": "pages/me/me",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/newAssignment/newAssignment",
+                    "pathName": "pages/me/newAssignment/newAssignment",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/new/new",
+                    "pathName": "pages/new/new",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/init/init",
+                    "pathName": "pages/me/init/init",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/newClass/newClass",
+                    "pathName": "pages/me/newClass/newClass",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/joinClass/joinClass",
+                    "pathName": "pages/me/joinClass/joinClass",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/newCourse/newCourse",
+                    "pathName": "pages/me/newCourse/newCourse",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/guide/guide",
+                    "pathName": "pages/me/guide/guide",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/newProfile/newProfile",
+                    "pathName": "pages/me/newProfile/newProfile",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/memberList/memberList",
+                    "pathName": "pages/me/memberList/memberList",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/newAssignment/newAssignment",
+                    "pathName": "pages/me/newAssignment/newAssignment",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/pending/pending",
+                    "pathName": "pages/pending/pending",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/history/history",
+                    "pathName": "pages/history/history",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/newCourse/setTeacher/setTeacher",
+                    "pathName": "pages/me/newCourse/setTeacher/setTeacher",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/function-grid/function-grid-template",
+                    "pathName": "pages/me/function-grid/function-grid-template",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/profile/profile",
+                    "pathName": "pages/me/profile/profile",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/me/course/course",
+                    "pathName": "pages/me/course/course",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/pending/pending-detail/pending-detail",
+                    "pathName": "pages/pending/pending-detail/pending-detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/pending/pending-review/pending-review",
+                    "pathName": "pages/pending/pending-review/pending-review",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/history/history-detail/history-detail",
+                    "pathName": "pages/history/history-detail/history-detail",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

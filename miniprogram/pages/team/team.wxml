@@ -1,0 +1,126 @@
+
+<!-- 导航栏 -->
+<view class="navbar">
+	<van-nav-bar
+  	title="{{name}}"
+  	right-text="{{right_text}}"
+	fixed="true"
+	placeholder="true"
+  	bind:click-left="onSideBar"
+  	bind:click-right="onClickRight"
+	>
+		<van-icon class="slot-left" name="wap-nav" slot="left" />
+	</van-nav-bar>
+</view>
+<!-- 导航栏 -->
+<button wx:if="{{current_team_id!=''}}" bindtap="onTeamInformation">团队信息</button>
+<button bindtap="onTeamCreation">创建团队</button>
+<button bindtap="onJoinTeam">加入团队</button>
+<button>搜索团队(待完成)</button>
+<button bindtap="onMemberInvited">生成邀请码</button>
+
+<button bindtap="onTeamMember">查看成员</button>
+<!-- 生成邀请码弹窗 -->
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  description="请选择要生成的邀请码条数"
+  bindclose="onClose"
+  cancel-text="确定"
+  bindcancel="onGeneratingCode"
+>
+<view class="pop-up-invitation">
+	<van-field
+	class="invitation-code-field"
+    value="{{ invitation_code_num }}"
+    placeholder="请输入数字"
+	border="{{ false }}"
+	bindchange="onNumberChange"
+	input-align="center"
+  />
+</view>
+</van-action-sheet>
+<!-- 生成邀请码弹窗 -->
+
+<!-- 查看邀请码下拉框 -->
+<van-collapse
+  value="{{ activeNames }}"
+  bindopen="onOpenCodeList"
+  bindclose="onCloseCodeList"
+>
+  <van-collapse-item title="查看所有邀请码" name="1">
+	<view wx:for="{{invitation_code_list}}" wx:for-item="item" wx:key="index">
+		<text class="code-text">{{item}}</text>
+	</view>
+  </van-collapse-item>
+</van-collapse>
+<!-- 查看邀请码下拉框 -->
+
+<!-- 切换团队下拉框 -->
+<van-collapse
+  value="{{ activeTeamNames }}"
+  bindopen="onOpenTeamList"
+  bindclose="onCloseTeamList"
+>
+  <van-collapse-item title="切换团队" name="1">
+	<view wx:for="{{team_list}}" wx:for-item="item" wx:key="index">
+		<div class="code-text" bindtap="onTeamSelected" data-id="{{item._id}}">
+			{{item.name}}
+		</div>
+	</view>
+  </van-collapse-item>
+</van-collapse>
+<!-- 切换团队下拉框 -->
+
+<!-- 查看申请下拉框 -->
+<van-collapse
+  value="{{ activeRequestNames }}"
+  bindopen="onOpenRequestList"
+  bindclose="onCloseRequestList"
+>
+  <van-collapse-item title="查看消息({{request_list.length+acknowledge_list.length}}条消息)" name="1">
+	<view wx:for="{{request_list}}" wx:for-item="item" wx:key="index">
+		<image class="request-avatar" src="{{item.detail.avatarUrl}}"></image>
+		<text class="code-text">{{item.detail.nickName}}</text>
+		<text>申请加入团队</text>
+		<button class="request-btn" bindtap="onRequestDenial" data-item="{{item}}">拒绝</button>
+		<button class="request-btn" bindtap="onRequestAccepted" data-item="{{item}}">接受</button>
+	</view>
+	<view wx:for="{{acknowledge_list}}" wx:for-item="item" wx:key="index">
+		<text>您已加入团队{{item.request.detail._id}}</text>
+		<button wx:if="{{item.type=='confirmation'}}" class="request-btn" bindtap="onAcknowledgeConfirmed" data-item="{{item}}">确定</button>
+	</view>
+  </van-collapse-item>
+</van-collapse>
+<!-- 查看申请下拉框 -->
+
+
+
+<!-- 加入团队弹窗 -->
+<van-action-sheet
+  show="{{ join_team_show }}"
+  actions="{{ actions }}"
+  description="请输入邀请码"
+  bindclose="onJoinTeamClose"
+  cancel-text="确定"
+  bindcancel="onJoinTeamConfirm"
+>
+<view class="pop-up-invitation">
+	<van-field
+	class="invitation-code-field"
+    value="{{ code_input }}"
+    placeholder="请输入邀请码"
+	border="{{ false }}"
+	bindchange="onCodeChange"
+	input-align="center"
+  />
+</view>
+</van-action-sheet>
+<!-- 加入团队弹窗 -->
+
+<van-toast id="van-toast" />
+
+<view class="team-list">我的所有团队</view>
+
+<view>团队消息</view>
+<view class="msg-container"></view>

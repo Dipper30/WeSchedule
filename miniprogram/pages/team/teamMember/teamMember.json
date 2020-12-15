@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-skeleton": "@vant/dist/skeleton/index"
+  }
+}

@@ -1,0 +1,24 @@
+.item {
+	height: 100px;
+	/* margin: 10px 0; */
+	/* box-shadow: rgba(40, 40, 46, 0.28); */
+	background-color: rgba(40, 40, 46, 0.28);
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.time {
+	padding: 10px;
+}
+
+.preview-icon {
+	margin-right: 5px;
+	/* margin-top: 5px; */
+	height: 30px;
+	width: 30px;
+}

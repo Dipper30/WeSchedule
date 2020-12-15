@@ -1,0 +1,3 @@
+<!--pages/news/news.wxml-->
+
+<van-empty description="该功能尚未开放" />

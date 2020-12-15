@@ -1,0 +1,89 @@
+/* components/calendar/calendar.js.wxss */
+@import "../../app.wxss";
+
+.calendar-container {
+	width: 100%;
+	overflow: hidden;
+	transition: 0.4s ease;
+}
+
+
+
+.show-cal {
+	height: 60vh;
+}
+
+.hide-cal {
+	height: 0;	
+}
+
+
+.month {
+	display: flex;
+	flex-direction: row;
+	padding-top: 40rpx;
+	padding-left: 20rpx;
+	font-size: 76rpx;
+	letter-spacing: 2rpx;
+	align-items: center;
+}
+
+.year {
+	padding-top: 10rpx;
+	padding-left: 20rpx;
+	color: #666;
+	font-size: 32rpx;
+}
+
+.month image {
+	width: 96rpx;
+	height: 96rpx;
+}
+
+
+.weekday {
+	width: 98%;
+	margin: 20rpx 0;
+}
+
+.current-month {
+	color: #333;
+	font-size: 36rpx;
+	font-weight: 600;
+	transition: 1s ease;
+}
+
+.none {
+	color: #666;
+}
+
+.day-list {
+	height: 100%;
+}
+
+.view-port {
+	width: 98%;
+	height: 30vh;
+	overflow: hidden;
+	background-color: lightblue;
+}
+
+.day-txt {
+	text-align: center;
+    float: left;
+    width: 14.2857142%;
+}
+
+.single-day {
+	font-size: 28rpx;
+	float: left;
+	width: 14.2857142%;
+	text-align: center;
+	height: 6vh;
+	color: #666;
+	line-height: 6vh;
+}
+
+.empty-space {
+	width: 4px;
+}

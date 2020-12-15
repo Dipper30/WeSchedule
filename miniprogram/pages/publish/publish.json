@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-calendar": "@vant/dist/calendar/index",
+    "van-cell": "@vant/dist/cell/index",
+    "van-cell-group": "@vant/dist/cell-group/index",
+    "date-section": "../../components/date-section/date-section",
+    "event-section": "../../components/event-section/event-section",
+    "van-field": "@vant/dist/field/index"
+  }
+}

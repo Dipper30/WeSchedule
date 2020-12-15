@@ -1,0 +1,4 @@
+<!--pages/me/me.wxml-->
+<text>pages/me/me.wxml</text>
+
+<button bindtap="onTeamCreation">创建团队</button>

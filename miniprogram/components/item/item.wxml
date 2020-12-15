@@ -1,0 +1,20 @@
+<view class="item">
+	<view class="header">
+		<view class="time">
+			<text>
+				{{item.begin}}-{{item.end}}
+			</text>
+		</view>
+		<view class="preview">
+			<text>
+				查看所在完整行程单>>>
+			</text>
+
+		</view>
+	</view>
+	<view class="description">
+		<text>
+			{{item.type}}
+		</text>
+	</view>
+</view>

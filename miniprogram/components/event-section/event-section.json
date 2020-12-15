@@ -1,0 +1,12 @@
+{
+	"component": true,
+	"usingComponents": {
+		"van-datetime-picker": "@vant/dist/datetime-picker/index",
+		"van-action-sheet": "@vant/dist/action-sheet/index",
+		"van-row": "@vant/dist/row/index",
+	  "van-col": "@vant/dist/col/index",
+	  "van-dropdown-menu": "@vant/dist/dropdown-menu/index",
+  "van-dropdown-item": "@vant/dist/dropdown-item/index",
+  "van-field": "@vant/dist/field/index"
+	}
+}

@@ -1,0 +1,13 @@
+.item {
+	height: 150px;
+	/* margin: 10px 0; */
+	border-bottom: black 2px solid ;
+	border-right: black 2px solid;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: space-between;
+	justify-content: space-between;
+}

@@ -1,0 +1,48 @@
+<view class="page-container">
+
+<!-- 导航栏 -->
+<!-- <view class="navbar">
+	<van-nav-bar
+  	title="今日行程"
+  	right-text="日历"
+	fixed="true"
+	placeholder="true"
+  	bind:click-left="onSideBar"
+  	bind:click-right="onClickRight"
+	>
+		<van-icon class="slot-left" name="wap-nav" slot="left" />
+	</van-nav-bar>
+</view> -->
+<!-- 导航栏 -->
+
+<!-- 侧边栏 -->
+<!-- <view class="side-bar-container ">
+	<van-sidebar class="side-bar {{open?'side-bar-show':''}}" active-key="{{ activeKey }}">
+  		<van-sidebar-item title="查看所有行程" />
+  		<van-sidebar-item title="只查看。。。" />
+  		<van-sidebar-item title="标签名3" />
+	</van-sidebar>
+	<view class="side-bar-arrow {{open?'side-bar-show':''}}" bindtap="onSideBar">
+		<image src="../../images/side-bar-arrow.png"></image>
+	</view>
+</view> -->
+<!-- 侧边栏 -->
+
+<!-- 头部 -->
+<view class="header">
+		
+	
+		<calendar id="sechedule-calendar" currentFullYear="{{currentYear}}" fullYearDays="{{fullYearDays}}" currentMonth="{{currentMonth}}" offsetY="{{offsetY}}" showCalendar="{{showCalendar}}"></calendar>
+		<week weekList="{{weekList}}" showCalendar="{{showCalendar}}"></week>
+		
+		
+</view>
+<!-- 头部 -->
+
+<!-- 主页面 -->
+<button bindtap="ontoggle">1</button>
+<view wx:for="{{readyList}}" wx:for-item="item" wx:key="index">
+	<view>消息：{{index}}   发布时间：{{item.upload_time}}   发布内容：{{item.message}}</view>
+</view>
+<!-- 主页面 -->
+</view>

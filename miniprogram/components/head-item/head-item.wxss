@@ -1,0 +1,29 @@
+.item {
+	height: 150px;
+	/* margin: 10px 0; */
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	background-color: rgba(40, 40, 46, 0.28);
+	
+
+}
+
+.header {
+	margin: 0 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: space-between;
+	justify-content: space-between;
+}
+
+.preview {
+	display: flex;
+	flex-direction: row;
+	margin-right: 10px;
+}
+
+.preview-icon {
+	/* margin-right: 5px; */
+	margin-top: 10px;
+	height: 30px;
+	width: 30px;
+}

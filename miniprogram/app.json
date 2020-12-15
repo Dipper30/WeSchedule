@@ -1,0 +1,77 @@
+{
+	"pages": [
+		"pages/publish/publish",
+		"pages/entry/entry",
+		
+	
+		"pages/schedule/schedule",
+		
+		"pages/team/teamMember/teamMember",
+		
+		"pages/team/team",
+		
+		"pages/preview/preview",
+		"pages/index/index",
+		"pages/news/news",
+		
+		"pages/me/me",
+		"pages/team/newTeam/newTeam",
+		"pages/team/teamInformation/teamInformation"
+		
+	],
+	"window": {
+		"navigationBarTitleText": "微日程"
+	},
+	"tabBar": {
+		"backgroundColor": "#222",
+		"color": "#fff",
+		"selectedColor": "#1afa29",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/schedule/schedule",
+				"text": "日程",
+				"iconPath": "/images/home.png",
+				"selectedIconPath": "/images/home-selected.png"
+			},
+			{
+				"pagePath": "pages/news/news",
+				"text": "动态",
+				"iconPath": "/images/idea.png",
+				"selectedIconPath": "/images/idea-selected.png"
+			},
+			{
+				"pagePath": "pages/publish/publish",
+				"text": "发布",
+				"iconPath": "/images/add.png",
+				"selectedIconPath": "/images/add-selected.png"
+			},
+			{
+				"pagePath": "pages/team/team",
+				"text": "团队",
+				"iconPath": "/images/team.png",
+				"selectedIconPath": "/images/team-selected.png"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我的",
+				"iconPath": "/images/me.png",
+				"selectedIconPath": "/images/me-selected.png"
+			}
+		]
+	},
+	"usingComponents": {
+		"van-icon": "@vant/dist/icon/index",
+		"van-button": "@vant/dist/button",
+		"van-empty": "@vant/dist/empty/index",
+		"van-nav-bar": "@vant/dist/nav-bar/index",
+		"van-tabbar": "@vant/dist/tabbar/index",
+		"van-tabbar-item": "@vant/dist/tabbar-item/index",
+		"van-field": "@vant/dist/field/index",
+		"van-cell-group": "@vant/dist/cell-group/index",
+		"van-toast": "@vant/dist/toast/index",
+		"van-collapse": "@vant/dist/collapse/index",
+		"van-collapse-item": "@vant/dist/collapse-item/index"
+	},
+	"sitemapLocation": "sitemap.json"
+}

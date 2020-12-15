@@ -1,0 +1,18 @@
+{
+  "usingComponents": {
+    "van-row": "@vant/dist/row/index",
+  "van-col": "@vant/dist/col/index",
+  "van-grid": "@vant/dist/grid/index",
+  "van-grid-item": "@vant/dist/grid-item/index",
+  "head-item": "../../components/head-item/head-item",
+  "tail-item": "../../components/tail-item/tail-item",
+  "van-sidebar": "@vant/dist/sidebar/index",
+  "van-sidebar-item": "@vant/dist/sidebar-item/index",
+  "van-calendar": "@vant/dist/calendar/index",
+  "calendar": "../../components/calendar/calendar",
+  "week": "../../components/week/week"
+  },
+  "window": {
+  
+  }
+}

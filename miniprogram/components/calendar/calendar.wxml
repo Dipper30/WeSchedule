@@ -1,0 +1,31 @@
+<!--components/calendar/calendar.js.wxml-->
+
+
+<view class="calendar-container {{showCalendar? 'show-cal' : 'hide-cal'}}">
+	<view class="month">
+			<view>{{monthToString}}</view>
+			<image src="../../images/down-arrow.png"></image>
+		</view>
+		<view class="year">
+			<view>{{currentYear}}</view>
+		</view>
+	<view class="weekday">
+		<view class="day-txt">日</view>
+		<view class="day-txt">一</view>
+		<view class="day-txt">二</view>
+		<view class="day-txt">三</view>
+		<view class="day-txt">四</view>
+		<view class="day-txt">五</view>
+		<view class="day-txt">六</view>
+		<view class="clearfix"></view>
+	</view>
+	
+	<view class="view-port" id="id10000" bindtouchstart="onViewPortStart" bindtouchmove="onViewPortMove" bindtouchend="onViewPortEnd" style="height: {{viewPortHeight+'vh'}}; transition: 0.4s ease;">
+		<view class="day-list" style="transform: translateY({{offsetY+'vh'}}); transition: 0.4s ease;">
+			<view class="single-day" wx:for="{{fullYearDays}}" wx:for-item="item" wx:key="index">
+				<view wx:if="{{item != ' '}}" class="{{((index>=initDay)&&(index<(initDay+monthDays))) ? 'current-month' : 'none'}}" id="id{{index}}" catchtap="onClickDate"> {{item}} </view>
+				<view wx:else><text>\n</text></view>
+			</view>
+		</view>
+	</view>
+</view>

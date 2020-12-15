@@ -1,0 +1,16 @@
+/* custom-tab-bar/index.wxss */
+@import "../colorui/main.wxss";
+@import "../colorui/icon.wxss";
+
+.tabbar{
+	background-color: #333;
+	color: #fff;
+}
+
+.active {
+	color: #39b541;
+}
+
+.defualt {
+	color: #fff;
+}
