@@ -57,14 +57,41 @@ Page({
                 success: function (res) {
                   // 根据openid读取个人信息
                   db.collection('users').where({
-              
                     _openid: that.data.openid
-              
                   }).get()
                   .then(res => {
                     console.log(res.data)
                     app.globalData.profile = res.data[0];
                     console.log('profile',app.globalData.profile)
+                    // 获取团队id
+                    wx.getStorage({
+                      key: 'team_profile',
+                      success: function(res) {
+                        console.log(res)
+                        if( res.data == '' ) {
+                          console.log(app.globalData.profile.team_list)
+                          // 本地无存储
+                          db.collection('teams').where({
+                            _id: _.in(app.globalData.profile.team_list)
+                          }).get().then(res=>{
+                            console.log(res)
+                            wx.setStorageSync('team_profile', res.data[0])
+                            app.globalData.team_profile = res.data[0]
+                          }).catch(err=> console.log(err))
+                        } else {
+                          // 本地有存储
+                          db.collection('teams').doc(res.data).get().then(res=>{
+                            app.globalData.team_profile = res.data
+                            console.log(app.globalData.team_profile)
+                          }).catch(err=> console.log(err))
+                        }
+                      },
+                      fail: function (err) {
+                        console.log(err)
+                      } 
+                    })
+                    
+                    
                     wx.switchTab({
                       url: '../schedule/schedule',
                     })
@@ -77,9 +104,7 @@ Page({
                 fail: function (res) {
                   console.log('not registered')
                   db.collection('users').where({
-               
                     _openid: that.data.openid
-              
                   }).get().then(res => {
                     if(res.data.length == 0){
                       that.initializePersonalInformation()
@@ -154,7 +179,7 @@ Page({
           wx.setStorageSync('registered', true)
           wx.setStorage({
             data: '',
-            key: 'team_id',
+            key: 'team_profile',
           })
           wx.setStorage({
             data: [],

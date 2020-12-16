@@ -5,6 +5,7 @@ const util = require('../../utils/util.js')
 const dateUtil = require('../../utils/date.js')
 const yearUtil = require('../../utils/year.js')
 const scheduleUtil = require('../../utils/scheduleUtil.js')
+const scheduleWatcher = require('../../utils/watcher/scheduleWatcher')
 import {Schedule} from '../../utils/obj/Schedule'
 import {SingleDayEvents} from '../../utils/obj/SingleDayEvents'
 import {Event,
@@ -15,6 +16,8 @@ import {Event,
 	PerformanceEvent} from '../../utils/obj/Event'
 
 const ef = new EventFactory()
+
+
 
 
 Page({
@@ -35,7 +38,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
-
+		this.scheduleWatcher
 	},
 
 
@@ -51,7 +54,6 @@ Page({
 			[]
 		)
 		this.setData({schedule: newSchedule})
-		console.log(newSchedule)
 	},
 
 	onNewEvent: function (params) {
@@ -126,7 +128,6 @@ Page({
 			schedule: this.data.schedule,
 			showSchedule: 3
 		})
-		console.log(this.data.schedule)
 	},
 
 	onNewDate: function () {
@@ -162,11 +163,10 @@ Page({
 			},
 		  })
 		  .then(res => {
-			console.log(res.result) // 3
+			console.log(res) // 3
 		  })
 		  .catch(console.error)
-	}
-
+	},
 
 
 })

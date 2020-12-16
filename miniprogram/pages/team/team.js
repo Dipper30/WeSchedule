@@ -77,7 +77,8 @@ Page({
 	 */
 	onLoad: function (options) {
 		var that = this
-		var id = wx.getStorageSync('team_id')
+		var id = wx.getStorageSync('team_profile')._id
+		console.log(id)
 		// 查看我的通知消息
 		console.log(app.globalData.profile)
 		if(app.globalData.profile.request_list) this.readAcknowledge()
