@@ -4,3 +4,40 @@
 	border-radius: 2px;
 	
 }
+
+.page-section {
+	padding: 15px;
+}
+
+.avatar {
+	width: 80px;
+	height: 80px;
+}
+
+.type-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.type-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 200px;
+}
+
+.type {
+	width: 80px;
+	height: 30px;
+	background-color: #999;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 5px;
+}
+
+.selected {
+	background-color: #333;
+}

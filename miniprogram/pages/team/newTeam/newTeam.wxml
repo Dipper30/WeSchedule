@@ -19,16 +19,63 @@
 
 
 <view class="page-section">
-   
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input"  maxlength="10" bindinput="bindNameInput" placeholder="输入团队名"/>
+  <view class="header">
+    <view>新建团队</view>
+  </view>
+  <view class="form-container">
+    <view class="row">
+      <image class="avatar" src="../../../images/avatar.png"></image>
+    </view>
+    <view class="row">
+      <van-field
+    model:value="{{ name }}"
+    placeholder="不超过15个字"
+    label="团队名称"
+    maxlength="15"
+    border="{{ false }}"
+  />
+    </view>
+
+    <view class="row">
+      <van-field
+    model:value="{{ descriptions }}"
+    placeholder="不超过100个字"
+    maxlength="100"
+    autosize="{{true}}"
+    label="团队描述"
+    border="{{ false }}"
+    type="textarea"
+  />
+    </view>
+    <view class="row type-row">
+      <view class="type-txt">
+        团队类型
       </view>
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input"  maxlength="10" bindinput="bindDescriptionInput" placeholder="输入团队描述"/>
+      <view class="type-container">
+        <view class="type {{isPermanent ? 'selected' : '' }}" bindtap="onPermanent">
+          长期团队
+        </view>
+        <view class="type {{isPermanent ? '' : 'selected' }}" bindtap="onTemporary">
+          临时团队
+        </view>
+      </view>
+      <view>
+
       </view>
     </view>
+    <view class="row">
+      
+    </view>
+    <view class="row">
+      
+    </view>
+    
+
   </view>
 
-  <van-toast id="van-toast" />
+   
+</view>
+<van-loading wx:if="{{showLoading == true}}" type="spinner" />
+<van-notify id="custom-selector" />
+  <!-- <van-toast id="van-toast" /> -->
 <button class="ok-btn" bindtap="onCreation">创建</button>

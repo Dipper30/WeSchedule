@@ -1,4 +1,18 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<import src="../../templates/info-skel/info-skel.wxml" />
+<import src="../../templates/info-plate/info-plate.wxml" />
 
-<button bindtap="onTeamCreation">创建团队</button>
+<view class="page-container">
+	<view class="card info">
+		<infoSkel />
+		<infoPlate info="{{info}}" />
+	</view>
+	<view class="card grid1">
+		<van-grid>
+			<view wx:for="{{grid1}}" wx:for-item="item" wx:key="index">
+				<van-grid-item icon="photo-o" text="{{item.text}}" />
+			</view>
+
+
+		</van-grid>
+	</view>
+</view>

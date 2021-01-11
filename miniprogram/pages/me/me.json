@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-grid": "@vant/dist/grid/index",
+    "van-grid-item": "@vant/dist/grid-item/index",
+    "infoSkel": "../../components/info-skel/info-skel",
+    "infoPlate": "../../components/info-plate/info-plate"
+  }
 }

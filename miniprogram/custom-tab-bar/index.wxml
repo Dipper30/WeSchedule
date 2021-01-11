@@ -1,25 +1,28 @@
 <!--custom-tab-bar/index.wxml-->
-<view class="cu-bar tabbar">
-    <view class="action text-green {{selected === 0 ? 'active' : 'default'}}" bindtap="switchTab" data-index="0">
-      <view class="cuIcon-homefill"></view> 日程
+<view class="tab">
+  <view class="item" bindtap="onSwitch" data-index="0">
+    <view class="icon">
+      <image src="{{selected == 0 ? '/images/home-selected.png' : '/images/home.png'}}"></image>
     </view>
-    <view class="action text-gray {{selected === 1 ? 'active' : 'default'}}" bindtap="switchTab" data-index="1">
-      <view class="cuIcon-similar"></view> 动态
-    </view>
-    <view class="action text-gray add-action">
-      <button class="cu-btn cuIcon-add bg-green shadow"></button>
-      发布
-    </view>
-    <view class="action text-gray {{selected === 3 ? 'active' : 'default'}}" bindtap="switchTab" data-index="2">
-      <view class="cuIcon-cart">
-        <view class="cu-tag badge">99</view>
-      </view>
-      团队
-    </view>
-    <view class="action text-gray {{selected === 3 ? 'active' : 'default'}}" bindtap="switchTab" data-index="3">
-      <view class="cuIcon-my">
-        <view class="cu-tag badge"></view>
-      </view>
-      个人
-    </view>
+    <view class="text {{selected == 0 ? 'active' : 'default'}}" >日程</view>
   </view>
+  <view class="item" bindtap="onSwitch" data-index="1">
+    <view class="icon">
+      <image src="{{selected == 1 ? '/images/idea-selected.png' : '/images/idea.png'}}"></image>
+    </view>
+    <view class="text {{selected == 1 ? 'active' : 'default'}}" >动态</view>
+  </view>
+<view class="add-btn">发布</view>
+<view class="item" bindtap="onSwitch" data-index="2">
+    <view class="icon">
+      <image src="{{selected == 2 ? '/images/team-selected.png' : '/images/team.png'}}"></image>
+    </view>
+    <view class="text {{selected == 2 ? 'active' : 'default'}}" >团队</view>
+  </view>
+  <view class="item" bindtap="onSwitch" data-index="3">
+    <view class="icon">
+      <image src="{{selected == 3 ? '/images/me-selected.png' : '/images/me.png'}}"></image>
+    </view>
+    <view class="text {{selected == 3 ? 'active' : 'default'}}" >个人</view>
+  </view>
+</view>

@@ -5,7 +5,38 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		info: [
+			{
+				num: 2,
+				text: '团队'
+			},
+			{
+				num: 3,
+				text: '当前日程'
+			},
+			{
+				num: 4,
+				text: '收藏日程'
+			},
+			{
+				num: 100,
+				text: '最近浏览'
+			}
+		],
+		grid1: [
+			{iconUrl: '',
+			text: '日历'
+		},
+		{iconUrl: '',
+		text: '月历'
+	},
+	{iconUrl: '',
+			text: '日历'
+		},
+		{iconUrl: '',
+			text: '日历'
+		}
+		],
 	},
 
 	/**

@@ -1,0 +1,35 @@
+<!--pages/team/inviteMember/inviteMember.wxml-->
+<text>pages/team/inviteMember/inviteMember.wxml</text>
+<view class="page-container">
+	<view class="card brief">复制以下邀请码发送给好友吧！用户可以通过“加入团队”选项输入邀请码来申请加入团队。</view>
+	<view class="card code-container">
+		<view class="card brief">您的邀请码列表</view>
+		<view wx:if="{{codeList.length>0}}">
+			<view wx:for="{{codeList}}" wx:for-item="item" wx:key="index">
+				<view class="single-code">
+					<view>{{item}}</view>
+					<view>
+						<image bindtap="onCopyCode" class="copy-icon" src="../../../images/copy.png" data-code="{{item}}"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view wx:else>当前列表为空</view>
+
+	</view>
+	<view class="newCode-container">
+		<view bindtap="onShowNewCode">
+			生成邀请码
+		</view>
+	</view>
+	<!-- 生成邀请码弹窗 -->
+	<van-action-sheet show="{{ show }}" actions="{{ actions }}" description="请选择要生成的邀请码条数" bindclose="onCloseNewCode"
+		cancel-text="确定" bindcancel="onNewCode">
+		<view class="pop-up-invitation">
+			<van-field class="invitation-code-field" value="{{ num }}" placeholder="请输入数字" border="{{ false }}"
+				bindchange="onNumberChange" input-align="center" />
+		</view>
+	</van-action-sheet>
+	<!-- 生成邀请码弹窗 -->
+	<van-notify id="copy-notify" />
+</view>

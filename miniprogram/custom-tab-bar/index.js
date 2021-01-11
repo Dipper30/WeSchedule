@@ -45,21 +45,19 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
-		// 底部切换
-		switchTab(e) {
-			let key = Number(e.currentTarget.dataset.index);
-			let tabList = this.data.tabList;
-			let selected = this.data.selected;
 
-			if(selected !== key) {
-				this.setData({
-					selected: key
-				});
+		onSwitch (e) {
+			let key = Number(e.currentTarget.dataset.index)
+			let tabList = this.data.tabList
+			console.log(key)
+			if(key != this.data.selected) {
 				wx.switchTab({
 					url: `/${tabList[key].pagePath}`,
 				})
-			}	
-		}
+			}
+			
+		},
+	
 
 	}
 })

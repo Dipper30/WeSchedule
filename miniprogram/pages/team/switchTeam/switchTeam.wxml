@@ -1,0 +1,10 @@
+<view class="page-container">
+	<view class="team-list-container">
+		<view wx:for="{{teamList}}" wx:for-item="item" wx:key="index" class="list">
+			<view class="info-container" data-id="{{item._id}}" bindtap="onTeamSelected">
+				{{item.name}}  {{item.type == true ? '长期团队':'临时团队'}}
+			</view>
+		</view>
+	</view>
+	<van-notify id="custom-selector" />
+</view>

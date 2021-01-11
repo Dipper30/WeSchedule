@@ -1,7 +1,7 @@
 <view class="container">
 
-
-  <view class="userinfo">
+<view class="welcome">Welcome to WeSchedule!!!</view>
+  <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindAvatarTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -10,8 +10,6 @@
   </view>
   <view bindtap="onEntry" class="usermotto">
     <text  class="user-motto">{{motto}}</text>
-  </view>
+  </view> -->
 </view>
-
-
-<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"  bindgetuserinfo="getUserInfo" bindtap="onEntry">点击进入微日程</button>
+<button wx:if="{{showButton}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>

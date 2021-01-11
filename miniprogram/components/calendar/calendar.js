@@ -10,7 +10,7 @@ Component({
 		showCalendar: Boolean,
 		fullYearDays: Array,
 		currentMonth: Number,
-		curerntFullYear: Number,
+		currentYear: Number,
 	},
 
 	/**
@@ -24,7 +24,6 @@ Component({
 		isLeapYear: false,
 		initDay: -1,
 		monthDays: -1,
-		currentYear: -1,
 		currentOffsetY: 0,
 		offsetY: 0,
 		initialOffsetY: 0,

@@ -1,6 +1,13 @@
 {
 	"pages": [
 		"pages/entry/entry",
+		"pages/team/inviteMember/inviteMember",
+		"pages/team/switchTeam/switchTeam",
+		"pages/team/teamMessage/teamMessage",
+		"pages/team/newTeam/newTeam",
+		
+		"pages/me/me",
+		
 		"pages/publish/publish",
 	
 		
@@ -15,8 +22,8 @@
 		"pages/index/index",
 		"pages/news/news",
 		
-		"pages/me/me",
-		"pages/team/newTeam/newTeam",
+		
+		
 		"pages/team/teamInformation/teamInformation"
 		
 	],
@@ -24,10 +31,11 @@
 		"navigationBarTitleText": "微日程"
 	},
 	"tabBar": {
-		"backgroundColor": "#222",
-		"color": "#fff",
-		"selectedColor": "#1afa29",
-		"borderStyle": "black",
+		
+		"backgroundColor": "#333",
+		"color": "#fdebd3",
+		"selectedColor": "#f2f2f2",
+		"borderStyle": "white",
 		"list": [
 			{
 				"pagePath": "pages/schedule/schedule",
@@ -72,7 +80,9 @@
 		"van-cell-group": "@vant/dist/cell-group/index",
 		"van-toast": "@vant/dist/toast/index",
 		"van-collapse": "@vant/dist/collapse/index",
-		"van-collapse-item": "@vant/dist/collapse-item/index"
+		"van-collapse-item": "@vant/dist/collapse-item/index",
+		"van-grid": "@vant/dist/grid/index",
+		"van-grid-item": "@vant/dist/grid-item/index"
 	},
 	"sitemapLocation": "sitemap.json"
 }

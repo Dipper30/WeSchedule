@@ -1,0 +1,38 @@
+.row1 {
+	padding: 32rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.row1-left {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.row1-left .avatar image {
+	width: 70px;
+	height: 70px;
+}
+
+.name-wrapper {
+	margin-left: 10px;
+}
+
+.name-wrapper .name {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #333;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.row1-right .more {
+	margin-top: 10px;
+	color: #333;
+}
+
+.brief {
+	font-size: 12px;
+}

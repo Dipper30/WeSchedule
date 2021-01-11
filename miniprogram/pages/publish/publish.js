@@ -14,11 +14,7 @@ import {Event,
 	TripEvent,
 	MealEvent,
 	PerformanceEvent} from '../../utils/obj/Event'
-
 const ef = new EventFactory()
-
-
-
 
 Page({
 
@@ -38,7 +34,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
-		this.scheduleWatcher
+		
 	},
 
 

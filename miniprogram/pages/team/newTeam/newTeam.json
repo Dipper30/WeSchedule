@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-field": "@vant/dist/field/index",
+    "van-loading": "@vant/dist/loading/index",
+    "van-notify": "@vant/dist/notify/index"
+  }
 }

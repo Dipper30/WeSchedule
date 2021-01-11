@@ -9,11 +9,11 @@ exports.main = async (event, context) => {
 	let result
 	try {
 		return await db.collection('schedules').add({
-		data: event.schedule
-	}).then(res=>{
-		console.log(res)
-		result = res
-	}).catch(err=>console.log(err))
+			data: event.schedule
+		}).then(res => {
+			console.log(res)
+			result = res
+		}).catch(err => console.log(err))
 	} catch (e) {
 		console.log(e)
 	}

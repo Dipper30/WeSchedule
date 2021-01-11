@@ -1,0 +1,36 @@
+<view class="page-container">
+	<view>消息列表</view>
+	<view wx:for="{{teamMessageList}}" wx:for-item="item" wx:key="index" class="message-list-container">
+		<view wx:if="{{item.type == 'req_join'}}"  data-info="{{item}}">
+			<view class="message-section">
+				<view class="text">
+					{{index}}. {{item.fromProfile.nickName}}请求加入{{item.toProfile.name}}
+				</view>
+				<view class="options">
+					<view class="no-btn" catchtap="onDenial">
+						拒绝
+					</view>
+					<view class="ok-btn" catchtap="onAccepted" data-info="{{item}}">
+						接受
+					</view>
+				</view>
+			</view>
+			
+		</view>
+		<view wx:elif="{{item.type == 'res_join_ok'}}"  data-info="{{item}}">
+			<view class="message-section">
+				<view class="text">
+					尊敬的{{index}}. {{item.toProfile.nickName}}，您已加入{{item.fromProfile.name}}。
+				</view>
+				<view class="options">
+					<view class="ok-btn" catchtap="onTeamConfirm" data-info="{{item}}">
+						确认
+					</view>
+				</view>
+			</view>
+			
+		</view>
+	</view>
+	<van-notify id="custom-selector" />
+	<van-toast id="van-toast" />
+</view>

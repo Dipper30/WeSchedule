@@ -32,7 +32,7 @@
 <view class="header">
 		
 	
-		<calendar id="sechedule-calendar" currentFullYear="{{currentYear}}" fullYearDays="{{fullYearDays}}" currentMonth="{{currentMonth}}" offsetY="{{offsetY}}" showCalendar="{{showCalendar}}"></calendar>
+		<calendar id="sechedule-calendar" currentYear="{{currentYear}}" fullYearDays="{{fullYearDays}}" currentMonth="{{currentMonth}}" offsetY="{{offsetY}}" showCalendar="{{showCalendar}}"></calendar>
 		<week weekList="{{weekList}}" showCalendar="{{showCalendar}}"></week>
 		
 		

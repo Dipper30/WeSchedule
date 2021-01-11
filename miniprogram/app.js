@@ -1,4 +1,6 @@
 //app.js
+
+
 App({
   onLaunch: function () {
     
@@ -18,15 +20,46 @@ App({
     this.globalData = {}
   },
 
+  teamMessageWatcher (that,options) {
+    wx.cloud.database().collection('messages')
+		// 按 progress 降序
+		// .orderBy('progress', 'desc')
+		// 取按 orderBy 排序之后的前 10 个
+		.limit(20)
+		.where({
+		  toOpenId: getApp().globalData.profile._openid,
+		  isProcessed: false
+		})
+		.watch({
+		  onChange: function(snapshot) {
+			  console.log(snapshot)
+      console.log('messages\' changed events', snapshot.docChanges)
+      getApp().globalData.teamMessageList = snapshot.docs
+			console.log('query result snapshot after the event', snapshot.docs)
+		  console.log('is init data', snapshot.type === 'init')
+			if(snapshot.type !== 'init' && snapshot.docChanges.length > 0) {
+        console.log('new event! and, ', snapshot.docs)
+        // that.test(snapshot.docChanges, snapshot.docs)
+			}
+		  },
+		  onError: function(err) {
+			console.error('the watch closed because of error', err)
+		  }
+		})
+  },
+
   globalData: {
-    isNew: true,
+    isTeamLeader: false,
     userInfo: {},
     profile_set: [],
     openid: "",
     profile: {},
     team_profile: {},
     haveauth: false,
-
+    fullYearDays: [],
+    weekList: [],
+    themeColor: 'normal',
+    teamMessageList: [],
   }
 
 })

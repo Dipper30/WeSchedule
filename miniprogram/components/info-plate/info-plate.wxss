@@ -1,0 +1,23 @@
+.row1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-bottom: 20px;
+}
+
+.item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.item .num {
+	font-size: larger;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.item .cate {
+	font-size: 12px;
+}

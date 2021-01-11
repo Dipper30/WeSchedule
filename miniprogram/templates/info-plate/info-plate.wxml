@@ -1,0 +1,14 @@
+<template name="infoPlate">
+	<view class="row1">
+		<view wx:for="{{info}}" wx:for-item="item" wx:key="index">
+			<view class="item">
+				<view class="num">
+					{{item.num}}
+				</view>
+				<view class="cate">
+					{{item.text}}
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

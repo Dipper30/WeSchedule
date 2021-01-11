@@ -1,0 +1,20 @@
+<template name="teamSkel">
+	<view class="row1">
+		<view class="row1-left">
+			<view class="avatar">
+				<image src="../../images/avatar.png"></image>
+			</view>
+			<view class="name-wrapper">
+				<view class="name">
+					邓紫棋音乐人团队
+				</view>
+				<view class="brief">
+					长期团队
+				</view>
+			</view>
+		</view>
+		<view class="row1-right">
+			
+		</view>
+	</view>
+</template>

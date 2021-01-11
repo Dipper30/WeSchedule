@@ -7,20 +7,15 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
 	const wxContext = cloud.getWXContext()
-	let id = ''
-
+	var id = ''
+	
 	try {
 		return await db.collection('teams').add({
-			data: {
-					name: event.name,
-					description: event.description,
-					schedule_list: [],
-					member_list: event.member_list,
-					establisher_id: event.establisher_id,
-					invitation_code: [],
-			}
+			data: event.newTeam
 		}).then(res=>{
 			console.log(res)
+			id = res._id
+			return id
 		})
 	  } catch (e) {
 		console.error(e)
