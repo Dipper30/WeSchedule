@@ -13,6 +13,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		navigationBarHeight: 0,
 		teamMessageList: [],
 	},
 
@@ -20,7 +21,9 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-	
+		this.setData({
+			navigationBarHeight: app.globalData.navigationBarHeight
+		})
 		this.setData({teamMessageList: app.globalData.teamMessageList})
 	},
 
@@ -31,7 +34,7 @@ Page({
 	onAccepted: function (e) {
 		const that = this
 		Toast.loading({
-			message: '加载中...',
+			message: '正在处理...',
 			forbidClick: true,
 		  })
 		let info = e.currentTarget.dataset.info
@@ -52,7 +55,10 @@ Page({
 					data: {
 						isProcessed: true
 					}
-				}).then(res=>console.log(res))
+				}).then(res=>{
+					console.log(res)
+					that.setData({teamMessageList: app.globalData.teamMessageList})
+				})
 				.catch(err=>console.log(err))
 				let response = new Message('res_join_ok', info.toProfile, info.fromProfile, info.fromProfile._openid, info, false)
 				db.collection('messages').add({
@@ -67,15 +73,24 @@ Page({
 					  duration: 1000,
 					  selector: '#custom-selector',
 					  onClose: () => {
+						  	if ( app.globalData.team_profile._id == info.toProfile._id ) {
+							  	console.log('refresh')
+								app.globalData.team_profile.memberList = [...app.globalData.team_profile.memberList, info.fromProfile._id]
+						  	}
 						//   wx.navigateBack({
 						// 		delta: 1
 						//   })
-						that.setData({teamMessageList: app.globalData.teamMessageList})
+						
 					  }
 					})
-				}).catch(err=>console.log(err))
-			  })
-			  .catch(console.error)
+				}).catch(err=>{
+					Toast.clear()
+				  	console.error
+				})
+			  }).catch(err=>{
+					Toast.clear()
+				  	console.error
+				})
 			break
 			default: console.log('err')
 			break

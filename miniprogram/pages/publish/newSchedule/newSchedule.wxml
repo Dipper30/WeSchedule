@@ -1,0 +1,29 @@
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+  <nav-bar class="nav-bar" style="padding-top: {{navigationBarHeight}}px" title="新建日程" />
+  <van-cell-group>
+    <van-field model:value="{{ scheduleName }}" placeholder="请输入日程单标题" border="{{ false }}" use-button-slot>
+      <van-button slot="button" size="small" type="primary" bindtap="initNewSchedule">确认</van-button>
+    </van-field>
+  </van-cell-group>
+  <button wx:if="{{showSchedule>1}}">{{scheduleName}}</button>
+  <van-cell wx:if="{{showSchedule>1}}" title="选择多个日期" value="{{ text }}" bindclick="onDisplay" />
+  <van-calendar show="{{ show }}" type="multiple" bind:close="onClose" bind:confirm="onConfirm" />
+  <view wx:if="{{showSchedule>2}}" wx:for="{{schedule.dayList}}" wx:for-item="item" wx:key="index">
+    <date-section dateIndex="{{index}}" singleDay="{{item}}" bindonnewevent="onNewEvent"
+      bindoneventupdated="onEventUpdated" bindoneventdeleted="onEventDeleted" data-id="{{index}}"
+      data-date="{{item.date}} "></date-section>
+  </view>
+  <!-- 选择团队下拉框 -->
+  <view class="team-list-container" wx:if="{{showTeamSelector}}">
+    <view class="team-list-text">上传至</view>
+    <view class="selector">
+      <van-dropdown-menu active-color="#1989fa">
+        <van-dropdown-item options="{{ teamOptions }}"
+        value="{{defaultTeam}}"
+        bindchange="onTeamSelected"
+        title-class="title-class" /> 
+      </van-dropdown-menu>
+    </view>
+  </view>
+  <button class="ok-btn" bindtap="uploadSchedule">保存并上传</button>
+</view>

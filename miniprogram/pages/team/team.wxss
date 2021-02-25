@@ -2,6 +2,7 @@
 @import "../../components/team-skel/team-skel.wxss";
 @import "../../components/info-plate/info-plate.wxss";
 
+
 .van-nav-bar {
 	padding-top: 0!important;
 }
@@ -9,6 +10,85 @@
 .nav-icon {
 	height: 30px;
 	width: 30px;
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-items: center;
+	padding: 15px 0;
+	color: #333;
+	/* background-color: var(--lightYellow); */
+}
+
+.header .info-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.header .info-container .avatar {
+	padding: 10px 15px;
+}
+
+.header .info-container .avatar image {
+	width: 65px;
+    height: 65px;
+	border-radius: 50%;
+}
+
+.header .info-container .team-name {
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.header .info-container .team-type {
+	font-size: 12px;
+}
+
+.header .info-container .info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.header .info-container .switch {
+	align-self: center;
+    margin-left: auto;
+	margin-right: 15px;
+	background-color: #72d58f;
+    padding: 4px 8px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.switch:active {
+	background-color: #3c6649;
+}
+
+.grid-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0 15px;
+}
+
+.grid {
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-items: center;
+}
+
+.grid-num {
+	text-align: center;
+	margin-bottom: 3px;
+}
+.grid-text {
+	text-align: center;
 }
 
 .van-field__input {

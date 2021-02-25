@@ -1,3 +1,5 @@
+<import src ="../../templates/team-type-icon/team-type-icon.wxml"/>
+
 <view>
 	<view class="row1">
 		<view class="row1-left">
@@ -9,7 +11,8 @@
 					{{teamProfile.name}}
 				</view>
 				<view class="brief">
-					{{teamProfile.type == true ? '长期团队' : '临时团队'}}
+					<template is="teamTypeIcon" data="{{type: teamProfile.type}}" />
+					<text>{{ teamProfile.type ? '长期团队' : '临时团队' }}</text>
 				</view>
 			</view>
 		</view>

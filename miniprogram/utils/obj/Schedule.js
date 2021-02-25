@@ -1,9 +1,11 @@
 class Schedule {
-	constructor (name, uploadTime, dayList) {
+	constructor (name, uploadTime, dayList, team) {
 		this.name = name
 		this.uploadTime = uploadTime
 		this.dayList = dayList
+		this.team = team
 	}
+
 	addEvent(event) {
 		alert('add ', event)
 	}

@@ -1,29 +1,10 @@
-<!--pages/publish/publish.wxml-->
-<text>pages/publish/publish.wxml</text>
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+  <view class="operation-list-container">
+    <view class="ok-btn" bindtap="onNewSchedule">新建日程</view>
+  </view>
+
 <button bindtap="onUpLoad">上传日程</button>
 <button bindtap="onNewEvent">添加新事件</button>
 <button bindtap="onNewSchedule">新建日程</button>
-<van-cell-group>
-  <van-field
-    wx:if="{{showSchedule>0}}"
-    model:value="{{ scheduleName }}"
-    placeholder="请输入日程单标题"
-    border="{{ false }}"
-    use-button-slot
-  >
-  <van-button slot="button" size="small" type="primary" bindtap="initNewSchedule"
-      >确认</van-button
-    >
-  </van-field>
-</van-cell-group>
-<button wx:if="{{showSchedule>1}}">{{scheduleName}}</button>
-<van-cell wx:if="{{showSchedule>1}}" title="选择多个日期" value="{{ text }}" bindclick="onDisplay" />
-<van-calendar
-  show="{{ show }}"
-  type="multiple"
-  bind:close="onClose"
-  bind:confirm="onConfirm"
-/>
-<view wx:if="{{showSchedule>2}}" wx:for="{{schedule.dayList}}" wx:for-item="item" wx:key="index">
-	<date-section dateIndex="{{index}}" singleDay="{{item}}" bindonnewevent="onNewEvent" bindoneventupdated="onEventUpdated" bindoneventdeleted="onEventDeleted" data-id="{{index}}" data-date="{{item.date}} "></date-section>
+
 </view>

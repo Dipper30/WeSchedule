@@ -27,13 +27,13 @@ App({
 		// 取按 orderBy 排序之后的前 10 个
 		.limit(20)
 		.where({
-		  toOpenId: getApp().globalData.profile._openid,
+		  toOpenId: getApp().globalData.openid,
 		  isProcessed: false
 		})
 		.watch({
 		  onChange: function(snapshot) {
 			  console.log(snapshot)
-      console.log('messages\' changed events', snapshot.docChanges)
+        console.log('messages\' changed events', snapshot.docChanges)
       getApp().globalData.teamMessageList = snapshot.docs
 			console.log('query result snapshot after the event', snapshot.docs)
 		  console.log('is init data', snapshot.type === 'init')
@@ -49,9 +49,9 @@ App({
   },
 
   globalData: {
+    navigationBarHeight: 0,
     isTeamLeader: false,
     userInfo: {},
-    profile_set: [],
     openid: "",
     profile: {},
     team_profile: {},

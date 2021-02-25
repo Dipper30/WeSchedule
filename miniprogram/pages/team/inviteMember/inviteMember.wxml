@@ -1,6 +1,7 @@
-<!--pages/team/inviteMember/inviteMember.wxml-->
-<text>pages/team/inviteMember/inviteMember.wxml</text>
-<view class="page-container">
+
+
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<nav-bar class="nav-bar" style="padding-top: {{navigationBarHeight}}px" title="邀请成员" />
 	<view class="card brief">复制以下邀请码发送给好友吧！用户可以通过“加入团队”选项输入邀请码来申请加入团队。</view>
 	<view class="card code-container">
 		<view class="card brief">您的邀请码列表</view>
@@ -18,7 +19,7 @@
 
 	</view>
 	<view class="newCode-container">
-		<view bindtap="onShowNewCode">
+		<view bindtap="onShowNewCode" class="ok-btn">
 			生成邀请码
 		</view>
 	</view>

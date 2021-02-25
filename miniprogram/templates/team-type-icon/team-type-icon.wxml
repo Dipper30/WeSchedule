@@ -1,0 +1,5 @@
+<template name="teamTypeIcon">
+	<view class="team-type-icon" style="background-color: {{ type == true ? 'green' : 'yellow' }}">
+		{{ type == true ? 'P' : 'T' }}
+	</view>
+</template>

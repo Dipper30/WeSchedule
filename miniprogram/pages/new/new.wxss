@@ -1,0 +1,27 @@
+
+.message-section {
+	display: flex;
+	flex-direction: column;
+	margin: 20px 50px;
+}
+
+.header {
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: sapce-between;
+}
+
+/* pages/publish/newSchedule/newSchedule.wxss */
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.name, .id, .gender {
+	width: 33.3%;
+	border: 1px solid #333;
+	text-align: center;
+	line-height: 32px;
+	height: 32px;
+}

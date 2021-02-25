@@ -1,5 +1,6 @@
 const app = getApp()
 const db = wx.cloud.database();
+const _ = db.command;
 
 
 Page({
@@ -8,19 +9,27 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		navigationBarHeight: 0,
 		establisher_id: '',
-		member_list: []
+		memberList: [],
+		teamProfile: {},
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		db.collection('teams').doc(options.id).get()
-		.then(res=>{
+		console.log(app.globalData.team_profile)
+		this.setData({
+			navigationBarHeight: app.globalData.navigationBarHeight,
+			teamProfile: app.globalData.team_profile
+		})
+		db.collection('users').where({
+			_id: _.in(app.globalData.team_profile.memberList)
+		}).get().then(res=>{
+			console.log(res.data)
 			this.setData({
-				member_list: res.data.member_list,
-				establisher_id: res.data.establisher_id
+				memberList: res.data
 			})
 		}).catch(err=>console.log(err))
 	},

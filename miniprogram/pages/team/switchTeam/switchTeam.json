@@ -1,5 +1,11 @@
 {
   "usingComponents": {
-    "van-notify": "@vant/dist/notify/index"
+    "van-notify": "@vant/dist/notify/index",
+    "nav-bar": "../../../components/nav-bar/nav-bar",
+    "van-tab": "@vant/dist/tab/index",
+    "van-tabs": "@vant/dist/tabs/index",
+    "team-info": "../../../components/team-info/team-info",
+    "van-overlay": "@vant/dist/overlay/index",
+    "van-loading": "@vant/dist/loading/index"
   }
 }

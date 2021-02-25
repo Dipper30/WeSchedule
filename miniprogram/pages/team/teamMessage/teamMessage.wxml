@@ -1,4 +1,5 @@
-<view class="page-container">
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<nav-bar class="nav-bar" style="padding-top: {{navigationBarHeight}}px" title="团队消息" />
 	<view>消息列表</view>
 	<view wx:for="{{teamMessageList}}" wx:for-item="item" wx:key="index" class="message-list-container">
 		<view wx:if="{{item.type == 'req_join'}}"  data-info="{{item}}">

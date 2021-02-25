@@ -1,3 +1,5 @@
+@import "../../templates/team-type-icon/team-type-icon.wxss";
+
 .row1 {
 	padding: 32rpx;
 	display: flex;
@@ -34,5 +36,7 @@
 }
 
 .brief {
+	display: flex;
+	flex-direction: row;
 	font-size: 12px;
 }

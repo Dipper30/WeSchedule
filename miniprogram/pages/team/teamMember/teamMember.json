@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "van-skeleton": "@vant/dist/skeleton/index"
+    "van-skeleton": "@vant/dist/skeleton/index",
+    "nav-bar": "../../../components/nav-bar/nav-bar",
+    "van-divider": "@vant/dist/divider/index"
   }
 }

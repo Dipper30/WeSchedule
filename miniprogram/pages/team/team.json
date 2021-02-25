@@ -7,6 +7,7 @@
     "van-grid-item": "@vant/dist/grid-item/index",
     "infoPlate": "../../components/info-plate/info-plate",
     "teamSkel": "../../components/team-skel/team-skel",
-    "van-toast": "@vant/dist/toast/index"
+    "van-toast": "@vant/dist/toast/index",
+    "van-dialog": "@vant/dist/dialog/index"
   }
 }

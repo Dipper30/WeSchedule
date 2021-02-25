@@ -12,7 +12,6 @@
   "calendar": "../../components/calendar/calendar",
   "week": "../../components/week/week"
   },
-  "window": {
+  "navigationStyle": "custom"
   
-  }
 }

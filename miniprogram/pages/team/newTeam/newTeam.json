@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "van-field": "@vant/dist/field/index",
-    "van-loading": "@vant/dist/loading/index",
-    "van-notify": "@vant/dist/notify/index"
+    "van-uploader": "@vant/dist/uploader/index",
+    "van-toast": "@vant/dist/toast/index",
+    "van-notify": "@vant/dist/notify/index",
+    "nav-bar": "../../../components/nav-bar/nav-bar"
   }
 }

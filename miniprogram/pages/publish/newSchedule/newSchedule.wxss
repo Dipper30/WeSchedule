@@ -1,0 +1,28 @@
+.team-list-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.team-list-text {
+	width: 40%;
+	text-align: center;
+}
+
+.selector {
+	width: 55%;
+}
+
+.title-class {
+	font-size: 28px; 
+	color: #333;
+}
+
+.van-dropdown-menu {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.van-ellipse {
+	color: #1989fa;
+}
+

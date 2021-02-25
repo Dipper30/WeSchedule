@@ -1,7 +1,9 @@
-const util= require('../../utils/util.js')
-const dateUtil= require('../../utils/date.js')
-const yearUtil= require('../../utils/year.js')
-const { User } = require("../../utils/obj/User");
+const util = require('../../utils/util.js')
+const dateUtil = require('../../utils/date.js')
+const yearUtil = require('../../utils/year.js')
+const {
+  User
+} = require("../../utils/obj/User");
 const app = getApp()
 const db = wx.cloud.database();
 const _ = db.command
@@ -21,50 +23,53 @@ Page({
   },
 
   onLoad: function () {
-    timer = setTimeout(() => {
-      clearTimeout(timer)
-      if(this.data.canSwitch == true) this.redirect()
-      else {
-        setTimeout(() => {
-          this.redirect()
-        }, 2500)
+    const that = this
+    // 清除本地缓存
+    wx.clearStorage()
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.statusBarHeight)
+        console.log(res.windowWidth)
+        console.log(res.windowHeight)
+        app.globalData.navigationBarHeight = res.statusBarHeight
+
+        // 每隔一秒判断是否可以进入主页面
+        let interval = setInterval(function () {
+          if (that.data.canSwitch == true) {
+            clearInterval(interval)
+            that.redirect()
+          }
+        }, 1000)
       }
-    }, 2500)
-
-
-  },
-
-  onReady: function () {
+    })
 
   },
 
   onShow: function () {
     const that = this
     this.renderCalender()
-    let promise = new Promise(function(resolve, reject){
-    // 获取openid
-    wx.cloud.callFunction({
-      name: 'login',
-      complete: res => {
-        console.log('openid--', res.result)
-        let openid = res.result.openid
-        that.setData({
-          openid: openid
-        })
-        app.globalData.openid = openid
-        that.login()
-      }
+    let promise = new Promise(function (resolve, reject) {
+      // 获取openid
+      wx.cloud.callFunction({
+        name: 'login',
+        complete: res => {
+          console.log('openid--', res.result)
+          let openid = res.result.openid
+          that.setData({
+            openid: openid
+          })
+          app.globalData.openid = openid
+          that.login()
+        }
+      })
     })
-  })
-
-  
   },
 
   getByOpenId: function (openid) {
 
   },
 
-  renderUserInfo () {
+  renderUserInfo() {
     const that = this
     // 判断是否为新用户
     wx.getStorage({
@@ -83,7 +88,9 @@ Page({
             if (app.globalData.profile.team_list.length != 0) {
               app.globalData.team_profile = wx.getStorageSync('team_profile')
             } else {}
-            that.data.canSwitch = true
+            that.setData({
+              canSwitch: true
+            })
           }).catch(err => console.log(err))
       },
       // 没有本地登录信息
@@ -104,12 +111,14 @@ Page({
             // 判断用户是否存在团队信息
             if (app.globalData.profile.team_list.length != 0) {
               db.collection('teams').doc(app.globalData.profile.team_list[0]).get()
-              .then(res => {
-                console.log(res.data)
-                wx.setStorageSync('team_profile', res.data)
-              }).catch(err => console.log(err))
+                .then(res => {
+                  console.log(res.data)
+                  app.globalData.team_profile = res.data
+                  wx.setStorageSync('team_profile', res.data)
+                }).catch(err => console.log(err))
             } else {
               wx.setStorageSync('team_profile', {})
+              app.globalData.team_profile = {}
             }
             console.log('profile', app.globalData.profile)
             // 跳转页面
@@ -124,13 +133,13 @@ Page({
   },
 
   getOpenid() {
-    console.log(1)
-  
+    console.log(app.globalData.openid)
+
   },
 
   login: function () {
     const that = this
-    console.log('ss')
+    console.log('log in ...')
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) //此处判断是否登录
@@ -151,24 +160,34 @@ Page({
         } else {
           console.log('未授权')
           // 显示授权按钮
-          this.setData({showButton: true})
-          
+          that.setData({showButton: true})
+
         }
       }
     })
   },
 
   bindGetUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+    const that = this
+    console.log(e.detail.userInfo)
     this.setData({
-        showButton: false
+      showButton: false
     })
-    this.renderUserInfo()
+
+    that.setData({
+      userInfo: e.detail.userInfo
+    })
+    app.globalData.userInfo = e.detail.userInfo //全局变量赋值
+    app.globalData.haveauth = true
+    // 读取用户信息
+    that.renderUserInfo()
+
+
   },
 
 
   initializePersonalInformation: function () {
+    // nickName, avatarUrl, gender, own_team, team_list, history_message
     let newUser = new User(this.data.userInfo.nickName, this.data.userInfo.avatarUrl, this.data.userInfo.gender, [], [], [])
     db.collection('users').add({
       data: {
@@ -181,6 +200,7 @@ Page({
       wx.setStorageSync('id', res._id)
       app.globalData.profile = {
         _id: res._id,
+        _openid: app.globalData.openid,
         ...newUser
       }
       wx.setStorageSync('registered', true)
@@ -199,7 +219,7 @@ Page({
 
   redirect: function () {
     // 跳转页面
-    if(timer) clearTimeout(timer)
+    if (timer) clearTimeout(timer)
     wx.switchTab({
       url: '../schedule/schedule',
     })
@@ -232,11 +252,11 @@ Page({
     // 设置weeklist
     let timestamp = Date.parse(date)
     let weekList = []
-    for( let i = 0 ; i < 7 ; i++ ) {
-        if(i>0) timestamp += 1000*60*60*24
-        let res = dateUtil.getDateByTimestamp(timestamp)
-        let val = [res[2],res[6]]
-        weekList[i] = val
+    for (let i = 0; i < 7; i++) {
+      if (i > 0) timestamp += 1000 * 60 * 60 * 24
+      let res = dateUtil.getDateByTimestamp(timestamp)
+      let val = [res[2], res[6]]
+      weekList[i] = val
     }
     app.globalData.weekList = weekList
   },

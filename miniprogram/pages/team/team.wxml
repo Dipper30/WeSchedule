@@ -1,43 +1,104 @@
-<import src="../../templates/team-skel/team-skel.wxml" />
-<import src="../../templates/info-plate/info-plate.wxml" />
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<view wx:if="{{hasTeam==true}}">
+		<view class="card info">
+			<view class="header">
+				<view class="info-container">
+					<view class="avatar">
+						<image src="{{profile.avatarUrl}}"></image>
+					</view>
+					<view class="info">
+						<view class="team-name">
+							{{teamProfile.name}}
+						</view>
+						<view class="team-type">
+							{{teamProfile.type ? '长期团队' : '临时团队'}}
+						</view>
+					</view>
+					<view class="switch" bindtap="onSwitchTeam">
+						切换
+					</view>
+				</view>
 
-<view class="page-container">
-<view wx:if="{{hasTeam==true}}">
-	<view class="card info">
-		<teamSkel teamProfile="{{teamProfile}}" />
-		<infoPlate bindoninfoclick="onInfoClick" info="{{info}}" />
-	</view>
+				
 
-	<!-- 管理员内容 -->
-	<view class="title">管理员权限</view>
-	<view class="card grid1">
-		<van-grid>
-			<view wx:for="{{grid1}}" wx:for-item="item" wx:key="index">
-				<van-grid-item icon="photo-o" text="{{item.text}}" bindtap="onGrid1" data-id="{{index}}" />
+
+				<view class="grid-container">
+					<view class="grid">
+						<view class="grid-num">
+							{{teamProfile.memberList.length}}
+						</view>
+						<view class="grid-text">
+							团队人数
+						</view>
+					</view>
+					<view class="grid">
+						<view class="grid-num">
+							{{teamProfile.scheduleList.length}}
+						</view>
+						<view class="grid-text">
+							当前日程
+						</view>
+					</view>
+					<view class="grid">
+						<view class="grid-num">
+							{{teamProfile.scheduleList.length}}
+						</view>
+						<view class="grid-text">
+							历史日程
+						</view>
+					</view>
+					<view class="grid">
+						<view class="grid-num">
+							0
+						</view>
+						<view class="grid-text">
+							团队通知
+						</view>
+					</view>
+				</view>
+
 			</view>
-		</van-grid>
+		</view>
+
+		<!-- 团队描述 -->
+		<viwe class="card">
+					<view class="description-container">
+						descriptions
+					</view>
+				</viwe>
+
+		<!-- 管理员内容 -->
+		<view class="title">管理员权限</view>
+		<view class="card grid1">
+			<van-grid>
+				<view wx:for="{{grid1}}" wx:for-item="item" wx:key="index">
+					<van-grid-item icon="photo-o" text="{{item.text}}" bindtap="onGrid1" data-id="{{index}}" />
+				</view>
+			</van-grid>
+		</view>
+
+		<!-- 通用内容 -->
+		<view class="title">通用操作</view>
+		<view class="card grid2">
+			<van-grid>
+				<view wx:for="{{grid2}}" wx:for-item="item" wx:key="index">
+					<van-grid-item icon="photo-o" text="{{item.text}}" bindtap="onGrid2" data-id="{{index}}" />
+				</view>
+			</van-grid>
+		</view>
 	</view>
 
-	<!-- 通用内容 -->
-	<view class="title">通用操作</view>
-	<view class="card grid2">
-		<van-grid>
-			<view wx:for="{{grid2}}" wx:for-item="item" wx:key="index">
-				<van-grid-item icon="photo-o" text="{{item.text}}" bindtap="onGrid2" data-id="{{index}}" />
-			</view>
-		</van-grid>
+
+
+
+	<view wx:else>暂无团队
+		<button bindtap="onJoinTeam">加入团队</button>
+		<button bindtap="onCreateTeam">创建团队</button>
 	</view>
-</view>
 
 
-
-
-<view wx:else>暂无团队
-	<button bindtap="onJoinTeam">加入团队</button>
-	<button bindtap="onCreateTeam">创建团队</button>
-</view>	
-<!-- 加入团队弹窗 -->
-<van-action-sheet show="{{ join_team_show }}" actions="{{ actions }}" description="请输入邀请码"
+	<!-- 加入团队弹窗 -->
+	<van-action-sheet show="{{ join_team_show }}" actions="{{ actions }}" description="请输入邀请码"
 		bindclose="onJoinTeamClose" cancel-text="确定" bindcancel="onJoinTeamConfirm">
 		<view class="pop-up-invitation">
 			<van-field class="invitation-code-field" value="{{ code_input }}" placeholder="请输入邀请码" border="{{ false }}"
@@ -46,4 +107,6 @@
 	</van-action-sheet>
 	<!-- 加入团队弹窗 -->
 	<van-toast id="van-toast" />
+
+	<van-dialog id="van-dialog" />
 </view>

@@ -1,11 +1,16 @@
-<!--miniprogram/pages/team/teamMember/teamMember.wxml-->
-
-
-<div class="member-container">
-	<div class="member" wx:for="{{member_list}}" wx:for-item="item" wx:key="index">
-			<div wx:if="{{item._id==establisher_id}}">群主！！！</div>
-			<div class="member-avatar"><image src="{{item.avatarUrl}}"></image></div>
-			<div>{{item.nickName}}</div>
-
-	</div>
-</div>
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<nav-bar class="nav-bar" style="padding-top: {{navigationBarHeight}}px" title="查看成员" />
+	<view class="header"> 共{{memberList.length}}名成员</view>
+<view class="member-container" wx:for="{{memberList}}" wx:for-item="item" wx:key="index">
+	<view class="member">
+			<view class="left">
+				<view class="member-avatar"><image src="{{item.avatarUrl}}"></image></view>
+			<view class="name">{{item.nickName ? item.nickName : 'unknown'}}</view>
+			</view>
+			<view class="right">
+				<view wx:if="{{item._openid==teamProfile.ownerOpenID}}">群主！！！</view>
+			</view>	
+	</view>
+	<van-divider />
+</view>
+</view>

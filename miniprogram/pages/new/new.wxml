@@ -1,0 +1,60 @@
+<view class="message-section" wx:for="{{list}}" wx:for-item="item" wx:key="index">
+	<view bindtap="switch" data-id="{{index}}"> 
+		<view class="header">
+		<view class="title">
+			{{item.name}}
+		</view>
+		<view class="time">
+			{{2020}}
+		</view>
+	</view>
+
+	<view class="content">
+		{{item.status}}
+	</view>
+	</view>
+	
+</view>
+
+<view class="table-container">
+	<view class="row title">
+		<view class="name">
+			姓名
+		</view>
+		<view class="id">
+			ID
+		</view>
+		<view class="gender">
+			性别
+		</view>
+	</view>
+	<view class="row">
+		<view class="name">
+			张三
+		</view>
+		<view class="id">
+			1
+		</view>
+		<view class="gender">
+			男
+		</view>
+	</view>
+	<view class="row">
+		<view class="name">
+			李四
+		</view>
+		<view class="id">
+			2
+		</view>
+		<view class="gender">
+			男
+		</view>
+	</view>
+
+</view>
+
+
+
+
+
+<button bindtap="login">点击获取code</button>

@@ -1,30 +1,13 @@
-<!-- 
-<text>miniprogram/pages/team/newTeam/newTeam.wxml</text>
-<van-cell-group>
-  <van-field
-	value="{{ name }}"
-	label="团队名称"
-    placeholder="名称小于10个字符"
-    border="{{ false }}"
-    bindchange="onNameChange"
-  />
-  <van-field
-	value="{{ description }}"
-	label="团队描述"
-    placeholder="名称小于100个字符"
-    border="{{ false }}"
-    bindchange="onDescriptionChange"
-  />
-</van-cell-group> -->
 
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<nav-bar class="nav-bar" style="padding-top: {{navigationBarHeight}}px" title="新建团队" />
 
-<view class="page-section">
-  <view class="header">
-    <view>新建团队</view>
-  </view>
   <view class="form-container">
     <view class="row">
-      <image class="avatar" src="../../../images/avatar.png"></image>
+      <!-- <image class="avatar" src="../../../images/avatar.png"></image> -->
+      <van-uploader>
+  <van-button icon="photo" type="primary">上传图片</van-button>
+</van-uploader>
     </view>
     <view class="row">
       <van-field
@@ -75,7 +58,9 @@
 
    
 </view>
-<van-loading wx:if="{{showLoading == true}}" type="spinner" />
+<!-- <van-loading wx:if="{{showLoading == true}}" type="spinner" /> -->
+<van-toast id="van-toast" />
+
 <van-notify id="custom-selector" />
   <!-- <van-toast id="van-toast" /> -->
 <button class="ok-btn" bindtap="onCreation">创建</button>

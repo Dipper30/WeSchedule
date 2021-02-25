@@ -11,6 +11,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		navigationBarHeight: 0,
 		codeList: [],
 		show: false,
 		num: 0,
@@ -20,8 +21,10 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		this.setData({codeList: app.globalData.team_profile.invitationCodeList})
-
+		this.setData({
+			codeList: app.globalData.team_profile.invitationCodeList,
+			navigationBarHeight: app.globalData.navigationBarHeight
+		})
 		// wx.cloud.callFunction({
 		// 	// 云函数名称
 		// 	name: 'getInvitationCodeList',

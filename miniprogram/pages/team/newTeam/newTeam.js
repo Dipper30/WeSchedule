@@ -13,6 +13,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		navigationBarHeight: 0,
 		name: '',
 		descriptions: '',
 		isPermanent: true,
@@ -24,36 +25,39 @@ Page({
 		name_input: '',
 		description_input: '',
 		showLoading: false,
+		canClick: true,
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		this.setData({
+			navigationBarHeight: app.globalData.navigationBarHeight
+		})
 	},
 
 	bindNameInput: function (e) {
 		this.setData({
-		  name_input: e.detail.value
+			name_input: e.detail.value
 		})
-	  },
+	},
 
-	  bindDescriptionInput: function (e) {
+	bindDescriptionInput: function (e) {
 		this.setData({
-		  description_input: e.detail.value
+			description_input: e.detail.value
 		})
-	  },
+	},
 
 
-	onNameChange: function(e) {
+	onNameChange: function (e) {
 		console.log(e.detail)
 		this.setData({
 			name: e.detail
 		})
 	},
 
-	onDescriptionChange: function(e) {
+	onDescriptionChange: function (e) {
 		this.setData({
 			description: e.detail
 		})
@@ -61,23 +65,34 @@ Page({
 
 	onPermanent: function () {
 		if (this.data.isPermanent == false) {
-			this.setData({isPermanent: true})
+			this.setData({
+				isPermanent: true
+			})
 		}
 	},
 
 	onTemporary: function () {
 		if (this.data.isPermanent == true) {
-			this.setData({isPermanent: false})
+			this.setData({
+				isPermanent: false
+			})
 		}
 	},
 
 	onCreation: function () {
-		this.setData({showLoading: true})
+		if( this.data.canClick == false ) {
+			return
+		}
+		Toast.loading({
+			message: '正在创建...',
+			forbidClick: true,
+		})
+		this.data.canClick = false
 		let that = this
 		let l = []
 		l[0] = app.globalData.profile._id
-		// name, avatarUrl, type, ownerOpenID, expireDateTS, memberList, descriptions, codeList
-		let newTeam = new Team(this.data.name, '', this.data.isPermanent, app.globalData.profile._openid, '', l, this.data.descriptions, [])
+		// name, avatarUrl, type, ownerOpenID, expireDateTS, memberList, descriptions, codeList, scheduleList
+		let newTeam = new Team(this.data.name, '', this.data.isPermanent, app.globalData.openid, '', l, this.data.descriptions, [], [])
 		console.log(newTeam)
 		// 添加新的团队数据
 		// 调用云函数
@@ -88,42 +103,49 @@ Page({
 		// 	}
 		// })
 		db.collection('teams').add({
-			data: {
-				...newTeam
-			}
-		})
-		.then(res=>{
-			console.log(res)
-			this.setData({showLoading: false})
-			var pages = getCurrentPages();
-				var currPage = pages[pages.length - 1];   //当前页面
-				var prevPage = pages[pages.length - 2];  //上一个页面
-				
+				data: {
+					...newTeam
+				}
+			})
+			.then(res => {
+				console.log(res)
+				var pages = getCurrentPages();
+				var currPage = pages[pages.length - 1]; //当前页面
+				var prevPage = pages[pages.length - 2]; //上一个页面
+
 				prevPage.setData({
-					new_team_id: res._id,
-					hasTeam: true
-				  })
-				  db.collection('users').doc(app.globalData.profile._id).update({
-					  data: {
-						  team_list: _.push(res._id)
-					  }
-				  }).then(res=>{
+					teamProfile: {
+						_id: res._id,
+						...newTeam
+					}
+				})
+				app.globalData.team_profile = {
+					_id: res._id,
+					...newTeam
+				}
+				app.globalData.profile.team_list = [...app.globalData.profile.team_list, res._id]
+				console.log('int!!!',app.globalData.team_profile, app.globalData.profile)
+				db.collection('users').doc(app.globalData.profile._id).update({
+					data: {
+						team_list: _.push(res._id)
+					}
+				}).then(res => {
+					Toast.clear()
 					Notify({
 						type: 'success',
-					  message: '创建成功',
-					  duration: 1000,
-					  selector: '#custom-selector',
-					  onClose: () => {
-						  wx.navigateBack({
-												delta: 1
-						  })
-					  }
+						message: '创建成功',
+						duration: 1000,
+						selector: '#custom-selector',
+						onClose: () => {
+							wx.navigateBack({
+								delta: 1
+							}).then(res => {
+								prevPage.onLoad() // 执行前一个页面的onLoad方法
+							})
+						}
 					})
-				  }).catch(err=>console.log(err))
-		}).catch(err=>{
-			console.log(err)
-			this.setData({showLoading: false})
-		})
+				}).catch(err => console.log(err))
+			}).catch(err => console.log(err))
 
 		// db.collection('teams').add({
 		// 	data: {
@@ -150,7 +172,7 @@ Page({
 		// 		var currPage = pages[pages.length - 1];   //当前页面
 		// 		var prevPage = pages[pages.length - 2];  //上一个页面
 		// 		wx.setStorageSync('team_id', that.data.current_team_id)
-				
+
 		// 		prevPage.setData({
 		// 			new_team_id: that.data.current_team_id
 		// 		  })

@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    navigationBarHeight: app.globalData.navigationBarHeight,
     readyList: [],
     currentDay: null,
     open: false,
@@ -20,6 +21,8 @@ Page({
     showCalendar: true,
     weekList: [],
     fullYearDays: [],
+    teamList: [],
+    eventList: [],
     // currentDate: this.getDate(),
     
   },
@@ -64,6 +67,9 @@ Page({
       fullYearDays: app.globalData.fullYearDays,
       weekList: app.globalData.weekList
     })
+    // 获取所有日程及事件
+    this.queryEvents()
+
     // 监听新日程
     const scheduleWatcher = db.collection('schedules')
 // 按 progress 降序
@@ -127,6 +133,39 @@ Page({
       })
     }
   },
+
+  async queryEvents () {
+    const that = this
+    // 首先获取所有团队信息
+    await wx.cloud.callFunction({
+			name: 'queryTeam',
+			data: { //传递
+				type: 'all',
+				teamList: app.globalData.profile.team_list
+			},
+		}).then(res=>{
+      console.log('teamlist', res.result)
+      that.data.teamList = res.result
+    })
+    const teamList = this.data.teamList
+    console.log(teamList)
+    if( teamList.length > 0 ) {
+      for ( let i = 0 ; i < teamList.length ; i++ ) {
+        if ( teamList[i].scheduleList.length > 0 ) {
+          for ( let j = 0 ; j < teamList[i].scheduleList.length ; j++ ) {
+            console.log(teamList[i].scheduleList)
+          }
+        }
+        
+      }
+    }
+ 
+  },
+
+  queryTeams: async function (type) {
+		const that = this
+		
+	},
 
   /**
    * 生命周期函数--监听页面隐藏

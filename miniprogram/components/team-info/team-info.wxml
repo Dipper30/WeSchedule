@@ -1,0 +1,17 @@
+<import src ="../../templates/team-type-icon/team-type-icon.wxml"/>
+
+<view class="team-info">
+	<view class="name-section">
+		<view class="name">
+		{{teamProfile.name}}
+		</view>
+		<template is="teamTypeIcon" data="{{type: teamProfile.type}}" />
+		
+	</view>
+	
+	
+	<view class="operation">
+		<image class="icon" src="../../images/remove-btn.png" />
+		<image class="icon" src="../../images/switch.png" bindtap="onSwitch" />
+	</view>
+</view>

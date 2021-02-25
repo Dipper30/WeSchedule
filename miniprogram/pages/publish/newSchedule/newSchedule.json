@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "nav-bar": "../../../components/nav-bar/nav-bar",
+    "van-calendar": "@vant/dist/calendar/index",
+    "van-cell": "@vant/dist/cell/index",
+    "van-cell-group": "@vant/dist/cell-group/index",
+    "date-section": "../../../components/date-section/date-section",
+    "event-section": "../../../components/event-section/event-section",
+    "van-field": "@vant/dist/field/index",
+    "van-dropdown-menu": "@vant/dist/dropdown-menu/index",
+    "van-dropdown-item": "@vant/dist/dropdown-item/index"
+  }
+}

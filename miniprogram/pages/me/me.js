@@ -1,49 +1,29 @@
 // pages/me/me.js
+const app = getApp()
+const db = wx.cloud.database()
+const _ = db.command
+const $ = db.command.aggregate
+import Toast from '../../miniprogram_npm/@vant/dist/toast/toast'
+import Dialog from '../../miniprogram_npm/@vant/dist/dialog/dialog'
+
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		info: [
-			{
-				num: 2,
-				text: '团队'
-			},
-			{
-				num: 3,
-				text: '当前日程'
-			},
-			{
-				num: 4,
-				text: '收藏日程'
-			},
-			{
-				num: 100,
-				text: '最近浏览'
-			}
-		],
-		grid1: [
-			{iconUrl: '',
-			text: '日历'
-		},
-		{iconUrl: '',
-		text: '月历'
-	},
-	{iconUrl: '',
-			text: '日历'
-		},
-		{iconUrl: '',
-			text: '日历'
-		}
-		],
+		navigationBarHeight: 0,
+		profile: {},
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		this.setData({
+			navigationBarHeight: app.globalData.navigationBarHeight,
+			profile: app.globalData.profile
+		})
 	},
 
 	/**

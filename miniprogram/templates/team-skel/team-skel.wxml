@@ -1,3 +1,5 @@
+<import src ="../../templates/team-type-icon/team-type-icon.wxml"/>
+
 <template name="teamSkel">
 	<view class="row1">
 		<view class="row1-left">
@@ -9,7 +11,7 @@
 					邓紫棋音乐人团队
 				</view>
 				<view class="brief">
-					长期团队
+					<template is="teamTypeIcon" data="{{type: type}}" />
 				</view>
 			</view>
 		</view>

@@ -1,7 +1,7 @@
 const db = wx.cloud.database()
 
 class Team {
-	constructor (name, avatarUrl, type, ownerOpenID, expireDateTS, memberList, descriptions, invitationCodeList) {
+	constructor (name, avatarUrl, type, ownerOpenID, expireDateTS, memberList, descriptions, invitationCodeList, scheduleList) {
 		this.name = name
 		this.avatarUrl = avatarUrl
 		this.type = type
@@ -10,6 +10,7 @@ class Team {
 		this.memberList = memberList
 		this.descriptions = descriptions
 		this.invitationCodeList = invitationCodeList
+		this.scheduleList = scheduleList
 	}
 }
 

@@ -1,5 +1,6 @@
 {
 	"pages": [
+		
 		"pages/entry/entry",
 		"pages/team/inviteMember/inviteMember",
 		"pages/team/switchTeam/switchTeam",
@@ -9,9 +10,9 @@
 		"pages/me/me",
 		
 		"pages/publish/publish",
-	
-		
-	
+		"pages/publish/newSchedule/newSchedule",
+		"pages/pulish/teamList/teamList",
+		"pages/new/new",
 		"pages/schedule/schedule",
 		
 		"pages/team/teamMember/teamMember",
@@ -28,44 +29,44 @@
 		
 	],
 	"window": {
-		"navigationBarTitleText": "微日程"
+		"navigationStyle": "custom"
 	},
 	"tabBar": {
-		
-		"backgroundColor": "#333",
-		"color": "#fdebd3",
-		"selectedColor": "#f2f2f2",
+		"custom": false,
+		"backgroundColor": "#ffffff",
+		"color": "#333",
+		"selectedColor": "#7c6138",
 		"borderStyle": "white",
 		"list": [
 			{
 				"pagePath": "pages/schedule/schedule",
 				"text": "日程",
-				"iconPath": "/images/home.png",
-				"selectedIconPath": "/images/home-selected.png"
+				"iconPath": "/images/tab/schedule.png",
+				"selectedIconPath": "/images/tab/schedule-hl.png"
 			},
 			{
 				"pagePath": "pages/news/news",
 				"text": "动态",
-				"iconPath": "/images/idea.png",
-				"selectedIconPath": "/images/idea-selected.png"
+				"iconPath": "/images/tab/share.png",
+				"selectedIconPath": "/images/tab/share.png"
 			},
 			{
 				"pagePath": "pages/publish/publish",
 				"text": "发布",
-				"iconPath": "/images/add.png",
-				"selectedIconPath": "/images/add-selected.png"
+				"iconPath": "/images/tab/new.png",
+				"selectedIconPath": "/images/tab/new-hl.png"
 			},
 			{
 				"pagePath": "pages/team/team",
 				"text": "团队",
-				"iconPath": "/images/team.png",
-				"selectedIconPath": "/images/team-selected.png"
+				"iconPath": "/images/tab/team.png",
+				"selectedIconPath": "/images/tab/team-hl.png"
 			},
 			{
 				"pagePath": "pages/me/me",
 				"text": "我的",
-				"iconPath": "/images/me.png",
-				"selectedIconPath": "/images/me-selected.png"
+				"iconPath": "/images/tab/setting.png",
+				"selectedIconPath": "/images/tab/setting-hl.png"
 			}
 		]
 	},

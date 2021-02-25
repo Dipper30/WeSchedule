@@ -1,7 +1,103 @@
 <import src="../../templates/info-skel/info-skel.wxml" />
 <import src="../../templates/info-plate/info-plate.wxml" />
 
-<view class="page-container">
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<view class="header">
+		<view class="avatar">
+			<image src="{{profile.avatarUrl}}"></image>
+		</view>
+		<view class="nick-name">
+			{{profile.nickName}}
+		</view>
+		<view class="grid-container">
+			<view class="grid">
+				<view class="grid-num">
+					{{profile.team_list.length}}
+				</view>
+				<view class="grid-text">
+					团队
+				</view>
+			</view>
+			<view class="grid">
+				<view class="grid-num">
+					0
+				</view>
+				<view class="grid-text">
+					当前日程
+				</view>
+			</view>
+			<view class="grid">
+				<view class="grid-num">
+					0
+				</view>
+				<view class="grid-text">
+					收藏
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="options-container">
+		<view class="row">
+			<view class="left">
+				<view class="option-icon">
+					<image src="../../images/tab/setting.png" />
+				</view>
+				<view class="option-text">
+					我的团队
+				</view>
+			</view>
+			<view class="right">
+				>
+				<!-- <image src="../../images/nav-icon.png"></image> -->
+			</view>
+		</view>
+		<view class="row">
+			<view class="left">
+				<view class="option-icon">
+					<image src="../../images/tab/setting.png" />
+				</view>
+				<view class="option-text">
+					我的记事本
+				</view>
+			</view>
+			<view class="right">
+				>
+				<!-- <image src="../../images/nav-icon.png"></image> -->
+			</view>
+		</view>
+		<view class="row">
+			<view class="left">
+				<view class="option-icon">
+					<image src="../../images/tab/setting.png" />
+				</view>
+				<view class="option-text">
+					会员设置
+				</view>
+			</view>
+			<view class="right">
+				>
+				<!-- <image src="../../images/nav-icon.png"></image> -->
+			</view>
+		</view>
+		<view class="row">
+			<view class="left">
+				<view class="option-icon">
+					<image src="../../images/tab/setting.png" />
+				</view>
+				<view class="option-text">
+					联系客服
+				</view>
+			</view>
+			<view class="right">
+				>
+				<!-- <image src="../../images/nav-icon.png"></image> -->
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- <view class="page-container">
 	<view class="card info">
 		<infoSkel />
 		<infoPlate info="{{info}}" />
@@ -15,4 +111,4 @@
 
 		</van-grid>
 	</view>
-</view>
+</view> -->

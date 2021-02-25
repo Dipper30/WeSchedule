@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "van-action-sheet": "@vant/dist/action-sheet/index",
-    "van-notify": "@vant/dist/notify/index"
+    "van-notify": "@vant/dist/notify/index",
+    "nav-bar": "../../../components/nav-bar/nav-bar"
   }
 }

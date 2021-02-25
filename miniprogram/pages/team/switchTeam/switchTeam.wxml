@@ -1,10 +1,53 @@
-<view class="page-container">
+<van-overlay show="{{ showOverlay }}" custom-style="background-color: transparent;">
+	<view class="loading-container">
+		<van-loading type="spinner" color="#1989fa" vertical>正在切换</van-loading>
+	</view>
+</van-overlay>
+<van-notify id="van-notify" />
+<view class="page-container" style="padding-top: {{navigationBarHeight+45}}px">
+	<nav-bar class="nav-bar" style="padding-top: {{navigationBarHeight}}px" title="切换团队" refresh="{{ifRefresh}}" />
+	
 	<view class="team-list-container">
-		<view wx:for="{{teamList}}" wx:for-item="item" wx:key="index" class="list">
-			<view class="info-container" data-id="{{item._id}}" bindtap="onTeamSelected">
-				{{item.name}}  {{item.type == true ? '长期团队':'临时团队'}}
-			</view>
-		</view>
+		<van-tabs swipeable color="#7a685d" line-width="90px" bindchange="onChange">
+			<van-tab title="全部团队">
+				<view class="loading" wx:if="{{switchLoading}}">
+						<view>
+							<van-loading type="spinner" color="#1989fa" />
+						</view>
+					</view>
+				<view class="team-container" wx:for="{{teamList}}" wx:for-item="item" wx:key="index">
+					<view class="team-info-container">
+						<team-info teamProfile="{{item}}" bindonswitchteam="onSwitchTeam" />
+					</view>
+				</view>
+			</van-tab>
+			<van-tab title="长期团队">
+				<view class="loading" wx:if="{{switchLoading}}">
+						<view>
+							<van-loading type="spinner" color="#1989fa" />
+						</view>
+					</view>
+				<view class="team-container" wx:for="{{teamList}}" wx:for-item="item" wx:key="index">
+					<view class="team-info-container">
+						<team-info teamProfile="{{item}}" bindonswitchteam="onSwitchTeam" />
+					</view>
+				</view>
+			</van-tab>
+			<van-tab title="临时团队">
+				<view class="loading" wx:if="{{switchLoading}}">
+						<view>
+							<van-loading type="spinner" color="#1989fa" />
+						</view>
+					</view>
+				<view class="team-container" wx:for="{{teamList}}" wx:for-item="item" wx:key="index">
+					<view class="team-info-container">
+						<team-info teamProfile="{{item}}" bindonswitchteam="onSwitchTeam" />
+					</view>
+				</view>
+			</van-tab>
+		</van-tabs>
+		
 	</view>
 	<van-notify id="custom-selector" />
+	
 </view>
